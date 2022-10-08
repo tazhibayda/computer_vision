@@ -1,11 +1,7 @@
-from PIL import Image
+from imtools import get_imlist
+import os
 
+imges = get_imlist(os.getcwd())
 
-im = Image.open('img.jpeg')
-
-box = (100,100,400,400)
-region = im.crop(box)
-region = region.transpose(Image.ROTATE_180)
-im.paste(region, box)
-
-im.save('rotate.jpeg')
+for i in imges:
+    print(i)
