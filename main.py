@@ -2,15 +2,16 @@ from pylab import *
 from PIL import Image
 
 
-im = array(Image.open('img.jpeg'))
-imshow(im)
+im = array(Image.open('img.jpeg').convert('L'))
 
-x = [600, 600, 400, 400]
-y = [200, 500, 200, 500]
+figure()
 
-plot(x, y, 'r*')
+gray()
 
-plot(x[:2], y[:2])
+contour(im, origin='image')
+axis('equal')
+axis('off')
 
-title('Plotting: "img.jpeg"')
+figure()
+hist(im.flatten(), 128)
 show()
